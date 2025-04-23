@@ -35,4 +35,43 @@
 ---
 
 ## 📁 File Structure
+ctse-chatbot/
+│
+├── data/
+│   ├── ctse_lecture_notes.pdf       # or pptx files
+│   └── sample_slides.pptx
+│
+├── notebooks/
+│   ├── 1_data_ingestion.ipynb       # Load & preprocess lecture notes
+│   ├── 2_embed_store.ipynb          # Embed text and store in vector DB
+│   ├── 3_llm_setup_rag.ipynb        # LLM (Mistral) + RAG integration
+│   ├── 4_chainlit_app.ipynb         # Chainlit chatbot interface
+│   └── 5_justification_and_prompts.ipynb  # LLM + Approach justification & prompt log
+│
+├── models/
+│   └── mistral-7b-instruct-v0.1.Q4_K_M.gguf  # Your local LLM file
+│
+├── vectorstore/
+│   └── ctse_faiss_index/            # FAISS or other vector DB
+│
+├── chainlit_app/
+│   └── app.py                       # Chainlit frontend
+│
+├── your_rag_module.py               # Python module to reuse RAG code in Chainlit
+├── requirements.txt                 # All dependencies
+└── README.md                        # Project overview
 
+
+## Set up
+python -m venv .venv
+.venv\Scripts\activate  -activate vertual environment
+pip install -r requirements.txt
+
+
+
+## Prompt
+You said:
+my task is Develop a simple chatbot using an LLM to answer questions based on CTSE(current trends in software enginerring ) lecture notes. The chatbot should be implemented inside Jupyter Notebook(.ipynb) use proper file structure can you more jupiter notebook files. Criteria Working Jupyter Notebook Chatbot - Robust, smooth and insightful responses Justification of LLM Choice - Strong, thorough and critical reasoning Justification of Development Approach - Highly reasoned, evidence based method Transparency of GenAI Prompts Used - All prompts with reflections on their use  Important Notes Students may use GenAI tools for assistance, but must provide prompts and outputs. Focus on functionality, clarity of explanation, and transparency. Plagiarism or hiding GenAI use will lead to penalties.
+Integrating RAG what will do.i like to use RAG And for UI I like to use Chainlit that hel to upload pdf or pptx and ask question from chat.
+For LLM need to use mistral-7b-instruct-v0.1.Q4_K_M.gguf becuse Chatgpt is paid.can you use better file structure. also Students can add Pdm And Presentaion Slides and Ask Questions.
+act As a AI ML Expert and also a Software engineer.
