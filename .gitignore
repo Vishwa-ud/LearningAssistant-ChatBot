@@ -1,0 +1,28 @@
+# Virtual environment folders
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code settings (optional)
+.vscode/
+
+# Model files (they are large!)
+models/*.gguf
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# FAISS index files (optional, if regenerated)
+*.faiss
+*.pickle
+
+# Logs or debug files
+*.log
