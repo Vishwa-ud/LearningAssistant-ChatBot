@@ -68,6 +68,17 @@ python -m venv .venv
 pip install -r requirements.txt
 
 
+## Vector database (Qdrant)
+
+### How to run qdrant docker
+```
+docker pull qdrant/qdrant
+```
+
+### Run
+```
+docker run -p 6333:6333 -p 6334:6334 -v "${PWD}/qdrant_storage:/qdrant/storage:z" qdrant/qdrant
+```
 
 ## Prompt
 You said:
