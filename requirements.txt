@@ -5,3 +5,4 @@ dotenv
 llama-index
 sentence-transformers
 llama-index-llms-ollama
+llama-parse

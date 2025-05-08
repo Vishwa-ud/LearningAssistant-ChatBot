@@ -103,3 +103,97 @@ Retrieval Augmented Generation (RAG) is a technique used to combine LLMs with re
 This is one of the most popular use cases for LLMs, and data scientists at tech companies (like mine) are currently working on building reliable RAGs using our company’s databases and documents.
 
 This course will teach you to build RAG systems with vector databases and embedding techniques —in-demand skills that make you an attractive candidate in today’s tech market.
+
+
+Here's a clear and concise **comparison table** between using `PyPDF` and `LlamaParse` for PDF parsing, specifically in the context of preparing text for LLM-based question answering with `RecursiveCharacterTextSplitter`.
+
+---
+
+### PyPDF vs LlamaParse for PDF Text Extraction**
+
+| Feature                          | **PyPDF**                                                  | **LlamaParse**                                                                |
+| -------------------------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| **Library**                      | `pypdf` (open source, local)                               | `llama_parse` (cloud-based, requires API key)                                 |
+| **Extraction Method**            | Extracts raw text page-by-page using `page.extract_text()` | Uses AI models to parse layout into structured **markdown** or plain **text** |
+| **Handling of Complex Layouts**  | Poor – struggles with columns, tables, headings            | Excellent – preserves structure, bullet points, and semantic layout           |
+| **Accuracy of Output**           | Basic and depends on PDF structure                         | High-quality, semantically segmented markdown or text                         |
+| **Output Format**                | Single plain string                                        | List of documents (`Document` objects), with `doc.text` as markdown           |
+| **Page Number Tracking**         | Manual – you can track by looping through `reader.pages`   | Not available by default                                                      |
+| **Setup & Dependencies**         | No account/API key needed; runs locally                    | Requires `llama_parse` package and LLamaParse Cloud API key                   |
+| **Speed**                        | Fast (local processing)                                    | Slower (uses external API calls)                                              |
+| **Text Splitting Compatibility** | Directly compatible with `RecursiveCharacterTextSplitter`  | Also compatible after joining `doc.text` fields                               |
+| **Use Case Fit**                 | Good for simple PDFs with consistent structure             | Best for academic PDFs, presentations, scanned or structured content          |
+
+---
+
+### 🟩 **When to Use PyPDF**
+
+* PDF is **simple** and contains clean, linear text.
+* You need **offline/local processing** without external API calls.
+* You're okay with **manual metadata tracking** (e.g., page numbers).
+
+### 🟦 **When to Use LlamaParse**
+
+* PDF has **complex layout** (e.g., slides, columns, bullets).
+* You want **high-quality parsing** into markdown with clean structure.
+* You're building a **QA or RAG system** that benefits from semantic segmentation.
+* You're okay using an **API key** and cloud processing.
+
+---
+
+
+### ADD Page number
+```
+from pypdf import PdfReader
+import os
+
+FILE_PATH = os.path.join("data", "Lecture1-a.pdf")
+reader = PdfReader(FILE_PATH)
+number_of_pages = len(reader.pages)
+
+entire_text = ""
+# Loop through each page and print its text with page number
+for page_num in range(number_of_pages):
+    page = reader.pages[page_num]
+    text = page.extract_text()
+    entire_text += page.extract_text()
+
+    print(f"\n--- Page {page_num + 1} ---\n")
+    print(text if text else "[No text found on this page]")
+```
+
+PyPDF
+output = 
+```
+Intro to DevOps and Beyond\nRavindu Nirmal FernandoAbout Me\n• STL - DevOps @ Sysco LABS - Sri Lanka\n• MSc in Computer Science specialized in \nCloud Computing (UOM)\n• AWS Certified Solutions Architect -
+```
+LlamaParse 
+output = 
+```
+--- Extracted Text Preview ---
+
+
+--- Document 1 ---
+
+# Intro to DevOps and Beyond
+
+# Ravindu Nirmal Fernando
+
+[...truncated...]
+
+
+--- Document 2 ---
+
+# About Me
+
+- STL - DevOps @ Sysco LABS - Sri Lanka
+- MSc in Computer Science specialized in Cloud Computing (UOM)
+- AWS Certified Solutions Architect - Professional
+- Certified Kubernetes Administrator (CKA)
+- AWS Community Builder
+
+Ravindu Nirmal Fernando
+...
+Thank You!
+
+```
