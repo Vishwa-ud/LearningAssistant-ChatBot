@@ -4,3 +4,4 @@ pypdf
 dotenv
 llama-index
 sentence-transformers
+llama-index-llms-ollama
