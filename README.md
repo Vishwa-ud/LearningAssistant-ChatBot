@@ -95,3 +95,11 @@ my task is Develop a simple chatbot using an LLM to answer questions based on CT
 Integrating RAG what will do.i like to use RAG And for UI I like to use Chainlit that hel to upload pdf or pptx and ask question from chat.
 For LLM need to use mistral-7b-instruct-v0.1.Q4_K_M.gguf becuse Chatgpt is paid.can you use better file structure. also Students can add Pdm And Presentaion Slides and Ask Questions.
 act As a AI ML Expert and also a Software engineer.
+
+
+### RAG
+Retrieval Augmented Generation (RAG) is a technique used to combine LLMs with reliable knowledge bases to improve their performance at a specific task.
+
+This is one of the most popular use cases for LLMs, and data scientists at tech companies (like mine) are currently working on building reliable RAGs using our company’s databases and documents.
+
+This course will teach you to build RAG systems with vector databases and embedding techniques —in-demand skills that make you an attractive candidate in today’s tech market.
