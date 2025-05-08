@@ -26,10 +26,10 @@
 
 ## 🛠️ Tech Stack
 
-- **Python 3.8+**
+- **Python 3.9+**
 - **Jupyter Notebook**
-- **LLM Platform**: OpenAI GPT / Hugging Face Transformers
-- **(Optional)**: FAISS or ChromaDB for vector-based retrieval
+- **LLM Platform**: Ollama / Hugging Face Transformers
+- **(Optional)**: Qudrant or ChromaDB for vector-based retrieval
 - **LangChain** *(optional, if used for chaining LLM with retrieval)*
 
 ---
@@ -38,34 +38,23 @@
 ctse-chatbot/
 │
 ├── data/
-│   ├── ctse_lecture_notes.pdf       # or pptx files
+│   ├── lecture_notes.pdf       # or pptx files
 │   └── sample_slides.pptx
-│
-├── notebooks/
-│   ├── 1_data_ingestion.ipynb       # Load & preprocess lecture notes
-│   ├── 2_embed_store.ipynb          # Embed text and store in vector DB
-│   ├── 3_llm_setup_rag.ipynb        # LLM (Mistral) + RAG integration
-│   ├── 4_chainlit_app.ipynb         # Chainlit chatbot interface
-│   └── 5_justification_and_prompts.ipynb  # LLM + Approach justification & prompt log
-│
-├── models/
-│   └── mistral-7b-instruct-v0.1.Q4_K_M.gguf  # Your local LLM file
-│
-├── vectorstore/
-│   └── ctse_faiss_index/            # FAISS or other vector DB
-│
-├── chainlit_app/
-│   └── app.py                       # Chainlit frontend
-│
-├── your_rag_module.py               # Python module to reuse RAG code in Chainlit
+├── rag4LecNote_QnA_ChatBot.ipynb    # ChatBot
 ├── requirements.txt                 # All dependencies
 └── README.md                        # Project overview
 
 
 ## Set up
-python -m venv .venv
-.venv\Scripts\activate  -activate vertual environment
-pip install -r requirements.txt
+```
+python -m venv .venv # create vertual environment
+```
+```
+.venv\Scripts\activate  # activate vertual environment
+```
+```
+pip install -r requirements.txt # install dependencies
+```
 
 
 ## Vector database (Qdrant)
@@ -79,6 +68,26 @@ docker pull qdrant/qdrant
 ```
 docker run -p 6333:6333 -p 6334:6334 -v "${PWD}/qdrant_storage:/qdrant/storage:z" qdrant/qdrant
 ```
+
+## Ollama
+Download Ollama & Install .exe 
+
+### Models
+```
+ollama run gemma3:1b
+ollama run deepseek-r1:1.5b
+ollama run llama3.1:8b
+```
+### Run
+In CMD
+```
+ollama serve 
+```
+OR
+```
+Run ollama.exe then ollama
+```
+serve on 'http://127.0.0.1:11434'
 
 ## Prompt
 You said:
