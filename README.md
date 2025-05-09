@@ -73,10 +73,16 @@ docker run -p 6333:6333 -p 6334:6334 -v "${PWD}/qdrant_storage:/qdrant/storage:z
 Download Ollama & Install .exe 
 
 ### Models
+
+#### List Available Models
+```
+ollama list
+```
+# pull from ollama
 ```
 ollama run gemma3:1b
-ollama run deepseek-r1:1.5b
-ollama run llama3.1:8b
+ollama run deepseek-r1:1.5b-qwen-distill-q4_K_M
+ollama run llama3.2:3b
 ```
 ### Run
 In CMD
@@ -88,6 +94,11 @@ OR
 Run ollama.exe then ollama
 ```
 serve on 'http://127.0.0.1:11434'
+
+# Models
+```
+
+```
 
 ## Prompt
 You said:
