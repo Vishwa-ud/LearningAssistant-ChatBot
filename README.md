@@ -59,7 +59,59 @@ pip install -r requirements.txt # install dependencies
 
 ## Vector database (Qdrant)
 
-### How to run qdrant docker
+## Setting Up Your Qdrant Cloud Cluster
+
+When setting up a Qdrant Cloud cluster, you'll need to choose a cluster name and several other configuration options. Here's a comprehensive guide to help you through the process:
+
+### Creating a Qdrant Cloud Cluster
+
+### Step 1: Sign Up and Access the Dashboard
+
+1. Go to [cloud.qdrant.io](https://cloud.qdrant.io/)
+2. Sign up or sign in to your account
+3. Navigate to the dashboard
+
+### Step 2: Create a New Cluster
+
+Click on "Create Cluster" and you'll need to provide these key details:
+
+1. **Cluster Name**: Choose a meaningful name for your cluster
+   - Examples: `devops-rag`, `lecture-embeddings`, `qa-system`
+   - This name helps you identify the cluster but doesn't affect functionality
+   - Use lowercase letters, numbers, and hyphens (no spaces)
+
+2. **Cloud Provider & Region**: 
+   - Select the cloud provider (AWS, GCP, Azure)
+   - Choose a region close to your users or application for lower latency
+
+3. **Cluster Size**:
+   - For your RAG system, a small cluster is likely sufficient
+   - Free tier: Good for testing with smaller datasets (thousands of vectors)
+   - Production tier: For larger datasets or higher query volumes
+
+4. **Network Access**:
+   - Public: Accessible from anywhere (secured by API key)
+   - Private: Restricted network access (more secure but requires VPC setup)
+
+### Step 3: Get Connection Details
+
+After creating the cluster, you'll receive:
+
+1. **Cluster URL**: Looks like `https://your-cluster-name-xxxxx.qdrant.io`
+2. **API Key**: Used for authentication
+
+### Code 
+```
+from qdrant_client import QdrantClient
+
+qdrant_client = QdrantClient(
+    host="xyz-example.eu-central.aws.cloud.qdrant.io",
+    api_key="<your-api-key>",
+)
+```
+
+
+## How to run qdrant docker
 ```
 docker pull qdrant/qdrant
 ```
