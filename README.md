@@ -2,9 +2,10 @@
 
 **LearningAssistant** is a smart chatbot powered by a Large Language Model (LLM) that allows students to ask questions based on CTSE (Current Trends in Software Engineering) lecture notes. This project was developed as part of an AI/ML Semester 1 (2025) assignment to demonstrate how LLMs can support education by answering subject-specific queries inside a Jupyter Notebook.
 
-### RAG
+RAG
 Retrieval Augmented Generation (RAG) is a technique used to combine LLMs with reliable knowledge bases to improve their performance at a specific task.
 This is one of the most popular use cases for LLMs, and data scientists at tech companies (like mine) are currently working on building reliable RAGs using our company’s databases and documents.
+
 ---
 
 ##  System Overview
@@ -66,7 +67,7 @@ ctse-chatbot/
 └── System diagram.jpg
 
 ---
-
+# Installation
 ## Set up
 ```
 python -m venv .venv # create vertual environment
