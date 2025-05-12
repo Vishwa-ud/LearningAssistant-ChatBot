@@ -56,14 +56,15 @@ This is one of the most popular use cases for LLMs, and data scientists at tech 
 
 ## 📁 File Structure
 ctse-chatbot/
-├── .venv
+├── .venv/                         # Python virtual environment
 ├── data/
-│   └── lecture_notes.pdf 
-├── .env      
-├── rag4LecNote_QnA.ipynb    # ChatBot Jupyter Notebook
-├── requirements.txt                 # All dependencies
-├── README.md                        # Project overview
-└── System diagram.jpg
+│   └── lecture_notes.pdf         # Lecture notes for chatbot input
+├── .env                          # Environment variables
+├── rag4LecNote_QnA.ipynb         # Chatbot Jupyter Notebook
+├── requirements.txt              # Project dependencies
+├── README.md                     # Project overview
+└── System diagram.jpg            # System architecture diagram
+
 
 ---
 # Installation
