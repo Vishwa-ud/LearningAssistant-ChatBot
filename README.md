@@ -54,11 +54,22 @@ This is one of the most popular use cases for LLMs, and data scientists at tech 
 
 ---
 
-<pre lang="markdown"> ## 📁 File Structure ``` ctse-chatbot/ ├── .venv/ # Python virtual environment ├── data/ │ └── lecture_notes.pdf # Lecture notes for chatbot input ├── .env # Environment variables ├── rag4LecNote_QnA.ipynb # Chatbot Jupyter Notebook ├── requirements.txt # Project dependencies ├── README.md # Project overview └── System diagram.jpg # System architecture diagram ``` </pre>
+## 📁 File Structure
+ctse-chatbot/
+├── .venv/                         # Python virtual environment
+├── data/
+│   └── lecture_notes.pdf         # Lecture notes for chatbot input
+├── .env                          # Environment variables
+├── rag4LecNote_QnA.ipynb         # Chatbot Jupyter Notebook
+├── requirements.txt              # Project dependencies
+├── README.md                     # Project overview
+└── System diagram.jpg            # System architecture diagram
+
 
 
 ---
-# Installation
+# Project Configuration
+# Installation 
 ## Set up
 ```
 python -m venv .venv # create vertual environment
@@ -69,6 +80,18 @@ python -m venv .venv # create vertual environment
 ```
 pip install -r requirements.txt # install dependencies
 ```
+
+## Environment Variables
+
+```
+# Llama Cloud API
+LLAMA_CLOUD_API_KEY=
+
+# Qdrant Cloud Configuration
+QDRANT_API_KEY=
+```
+
+
 
 ## Laama Parse
 docs = 'https://docs.cloud.llamaindex.ai/llamaparse/getting_started'
